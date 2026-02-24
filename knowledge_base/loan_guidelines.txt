@@ -1,0 +1,7 @@
+If credit score is low, banks classify customer as high risk.
+Customers with weak credit history are considered high risk.
+Low income reduces repayment capacity.
+High debt-to-income ratio increases default probability.
+Banks classify applicants based on repayment ability and credit behavior.
+Stable income reduces default probability.
+Good repayment history improves creditworthiness.
