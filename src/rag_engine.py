@@ -3,7 +3,7 @@ import faiss
 import numpy as np
 from transformers import pipeline
 import re
-from ml_model import predict_default_probability
+from src.ml_model import predict_default_probability
 
 embedding_model = SentenceTransformer("all-MiniLM-L6-v2")
 
