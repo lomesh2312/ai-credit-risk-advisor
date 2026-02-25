@@ -175,7 +175,9 @@ if __name__ == "__main__":
     
     if default_prob is not None:
 
-        rule_score = {"Low": 0, "Medium": 1, "High": 2}[rule_risk_label]
+        risk_map = {"Low": 0, "Medium": 1, "High": 2}
+
+        rule_score = risk_map[rule_risk_label]
 
         if default_prob > 0.65:
             ml_score = 2
@@ -184,14 +186,20 @@ if __name__ == "__main__":
         else:
             ml_score = 0
 
-
+        # Hybrid averaging
         final_score = (rule_score * 0.5) + (ml_score * 0.5)
 
         if final_score >= 1.2:
-            final_risk = "High"
+            hybrid_risk = "High"
         elif final_score >= 0.6:
-            final_risk = "Medium"
+            hybrid_risk = "Medium"
         else:
-            final_risk = "Low"
+            hybrid_risk = "Low"
+
+        # 🔒 Safety Clamp (VERY IMPORTANT)
+        if risk_map[hybrid_risk] < risk_map[rule_risk_label]:
+            final_risk = rule_risk_label
+        else:
+            final_risk = hybrid_risk
 
         print(f"\nFinal Risk Decision (Hybrid Model): {final_risk}")

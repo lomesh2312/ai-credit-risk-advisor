@@ -74,26 +74,39 @@ if st.button("🚀 Assess Risk"):
         )
 
 
-        rule_score = {"Low": 0, "Medium": 1, "High": 2}[rule_risk_label]
+        risk_map = {"Low": 0, "Medium": 1, "High": 2}
 
-        if default_prob > 0.65:
-            ml_score = 2
-        elif default_prob > 0.4:
-            ml_score = 1
-        else:
-            ml_score = 0
+    rule_score = risk_map[rule_risk_label]
 
-        final_score = (rule_score * 0.5) + (ml_score * 0.5)
+    if default_prob > 0.65:
+        ml_score = 2
+    elif default_prob > 0.4:
+        ml_score = 1
+    else:
+        ml_score = 0
 
-        if final_score >= 1.2:
-            final_risk = "High"
-            color = "#ef4444"
-        elif final_score >= 0.6:
-            final_risk = "Medium"
-            color = "#f59e0b"
-        else:
-            final_risk = "Low"
-            color = "#10b981"
+
+    final_score = (rule_score * 0.5) + (ml_score * 0.5)
+
+    if final_score >= 1.2:
+        hybrid_risk = "High"
+    elif final_score >= 0.6:
+        hybrid_risk = "Medium"
+    else:
+        hybrid_risk = "Low"
+
+    if risk_map[hybrid_risk] < risk_map[rule_risk_label]:
+        final_risk = rule_risk_label
+    else:
+        final_risk = hybrid_risk
+
+
+    if final_risk == "High":
+        color = "#ef4444"
+    elif final_risk == "Medium":
+        color = "#f59e0b"
+    else:
+        color = "#10b981"
 
     st.divider()
 
