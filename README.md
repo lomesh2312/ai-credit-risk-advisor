@@ -17,18 +17,66 @@ The system predicts loan default probability and generates structured, explainab
 
 ---
 
-## 🎯 Problem Statement
+## 🎯 What Problem Does This Solve?
 
 Traditional loan approval systems either:
-- Rely only on rigid rule-based checks, OR
-- Depend entirely on machine learning black-box models
 
-This project solves that by creating a **hybrid intelligent risk framework** that ensures:
+- Depend only on rigid rule-based checks  
+- Or rely entirely on black-box machine learning models  
 
-- Accurate probability prediction
-- Regulatory-safe rule enforcement
-- Human-readable explanations
-- Consistent final decisions
+This system combines both approaches to ensure:
+
+- Accurate probability prediction  
+- Regulatory-safe rule enforcement  
+- Transparent explanations  
+- Consistent final decisions  
+
+---
+
+# 👤 User Inputs
+
+The user must provide the following financial details:
+
+1. **Annual Income**
+2. **Loan Amount (Credit)**
+3. **Annual EMI (Annuity)**
+4. **Age**
+5. **Years Employed**
+6. **Credit History**
+   - Good
+   - Weak
+
+---
+
+# 📊 System Outputs
+
+After submission, the system generates:
+
+### ✅ Hybrid Risk Assessment Result
+Final decision: **Low / Medium / High**
+
+### 📏 Rule-Based Risk
+Risk derived from financial rules and thresholds
+
+### 🤖 ML Default Probability
+Predicted probability of loan default (percentage)
+
+### 📉 Debt-to-Income Ratio (DTI)
+Calculated as:
+
+DTI = Annual EMI / Annual Income
+
+### 📝 Explanation
+Clear structured explanation including:
+- Detected risk indicators
+- Credit behavior impact
+- DTI interpretation
+- Final reasoning
+
+### 🎨 Risk Color Indicator
+- 🟢 Green → Low Risk  
+- 🟡 Orange → Medium Risk  
+- 🔴 Red → High Risk  
 
 ---
 
@@ -36,77 +84,45 @@ This project solves that by creating a **hybrid intelligent risk framework** tha
 
 ### 1️⃣ Machine Learning Layer
 - Model: Random Forest Classifier
-- Predicts: Loan Default Probability
-- Features:
-  - Income
-  - Loan Amount (Credit)
-  - Annual EMI (Annuity)
-  - Age
-  - Years Employed
-  - Debt-to-Income Ratio (DTI)
+- Predicts loan default probability
+- Uses structured financial features
 
 ---
 
 ### 2️⃣ Rule-Based Risk Engine
-Evaluates structured financial risk factors:
-
+Evaluates:
 - Weak credit history
-- Low income
 - High debt burden
-- Debt-to-Income Ratio thresholds
-
-Risk Levels:
-- Low
-- Medium
-- High
+- Low income
+- DTI thresholds
 
 ---
 
-### 3️⃣ Hybrid Risk Decision System
+### 3️⃣ Hybrid Decision Logic
 
-Final Risk = Weighted Combination of:
-- ML Score
-- Rule-Based Score
+Final Risk = Weighted combination of:
+- ML risk score
+- Rule-based score
 
-🔒 Safety Clamp Logic:
-Rule-based risk cannot be overridden downward by ML prediction.
-
-This ensures regulatory consistency and financial safety.
+🔒 **Safety Clamp Logic Applied**
+Rule-based risk cannot be overridden downward by ML.
+This ensures financial and regulatory consistency.
 
 ---
 
 ### 4️⃣ RAG (Retrieval-Augmented Generation)
 
-- Knowledge base stored in loan guidelines file
-- FAISS vector index for semantic search
-- Sentence Transformers for embeddings
+- Uses FAISS vector search
+- Embedding model: SentenceTransformers
+- Retrieves relevant loan guidelines
 - Generates contextual financial explanations
-
----
-
-### 5️⃣ Sentiment Analysis
-
-Analyzes textual input sentiment using a fine-tuned transformer model.
-
----
-
-## 📊 Output Example
-
-The system provides:
-
-- Hybrid Risk Assessment Result
-- Rule-Based Risk
-- ML Default Probability
-- Debt-to-Income Ratio
-- Structured Explanation
-- Risk Color Indicator
 
 ---
 
 ## 🛠 Tech Stack
 
 - Python
-- Streamlit (UI)
+- Streamlit
 - Scikit-learn
 - FAISS
 - SentenceTransformers
@@ -137,7 +153,7 @@ AI-Credit-Risk-Advisor/
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/lomesh2312/ai-credit-risk-advisor.git
+git clone <your-repo-url>
 cd AI-Credit-Risk-Advisor
 pip install -r requirements.txt
 streamlit run app.py
@@ -147,50 +163,34 @@ streamlit run app.py
 
 ## 🌐 Deployment
 
-The application is deployed using Streamlit Cloud.
-
----
-
-## 🏦 Key Design Decisions
-
-- ML predicts structural financial risk
-- Rules capture behavioral red flags
-- Hybrid model prevents underestimation
-- Explainability prioritized for transparency
-- Modular architecture for scalability
+Deployed using Streamlit Cloud.
 
 ---
 
 ## 📈 Why This Project Is Strong
 
 ✔ End-to-End ML Pipeline  
-✔ Feature Engineering  
-✔ Hybrid Decision Framework  
+✔ Hybrid Risk Framework  
 ✔ Regulatory-Safe Override Logic  
-✔ RAG-Based Explainable AI  
-✔ Deployed Web Application  
+✔ Explainable AI with RAG  
+✔ Clean Web Interface  
+✔ Public Deployment  
 
 This is not just a prediction model —  
-it is a structured AI risk evaluation system.
+it is a structured AI-powered financial risk evaluation system.
+
+---
+
+## 🚀 Future Enhancements
+
+- Feature Importance Visualization
+- Risk Probability Gauge
+- PDF Report Generation
+- Model Retraining Pipeline
+- Advanced Behavioral Credit Features
 
 ---
 
 ## 👨‍💻 Author
 
 Developed as an intelligent fintech risk assessment prototype combining machine learning, explainable AI, and hybrid risk modeling.
-
----
-
-## 📌 Future Improvements
-
-- Feature Importance Visualization
-- Risk Probability Gauge
-- PDF Report Generation
-- Model Retraining Pipeline
-- Advanced Credit Behavior Features
-
----
-
-### 🔥 Final Note
-
-AI Credit Risk Advisor demonstrates how machine learning and rule-based systems can work together to build safer, explainable, and production-ready financial AI systems.
