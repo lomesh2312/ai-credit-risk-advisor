@@ -80,6 +80,12 @@ Clear structured explanation including:
 
 ---
 
+## Example
+
+<img width="1600" height="1571" alt="image" src="https://github.com/user-attachments/assets/694b3417-319a-4ea2-aa70-9c7173fe5152" />
+
+---
+
 ## 🧠 System Architecture
 
 ### 1️⃣ Machine Learning Layer
