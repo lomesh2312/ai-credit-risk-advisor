@@ -5,7 +5,6 @@ import time
 
 st.set_page_config(
     page_title="AI Credit Risk Advisor",
-    page_icon="🏦",
     layout="wide"
 )
 
@@ -29,7 +28,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🏦 AI Credit Risk Advisor")
+st.title("AI Credit Risk Advisor")
 st.caption("Hybrid Rule-Based + Machine Learning Credit Assessment System")
 
 st.divider()
@@ -50,7 +49,7 @@ with col2:
 st.divider()
 
 
-if st.button("🚀 Assess Risk"):
+if st.button("Assess Risk"):
 
     with st.spinner("Analyzing financial profile..."):
         time.sleep(1)
