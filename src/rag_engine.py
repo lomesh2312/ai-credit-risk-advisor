@@ -115,9 +115,9 @@ def generate_response(query, income=None, annuity=None):
 
         explanation += (
         "\nWhat is Debt-to-Income Ratio (DTI)?\n"
-        "DTI represents the proportion of a person's income that goes toward paying debt.\n"
-        "It is calculated as: Annual EMI / Annual Income.\n"
-        "A lower DTI indicates better repayment capacity, while a higher DTI suggests higher financial risk.\n"
+        "- DTI represents the proportion of a person's income that goes toward paying debt.\n"
+        "- It is calculated as: Annual EMI / Annual Income.\n"
+        "- A lower DTI indicates better repayment capacity, while a higher DTI suggests higher financial risk.\n"
         )
 
     return explanation, risk_level, dti
