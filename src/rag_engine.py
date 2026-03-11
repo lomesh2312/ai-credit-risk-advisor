@@ -93,10 +93,10 @@ def generate_response(query, income=None, annuity=None):
             risk_score += 1
             reasons.append("Debt-to-Income ratio is moderately high (30–50%).")
 
-    # Risk classification
-    if risk_score >= 4:
+
+    if risk_score >= 3:
         risk_level = "High"
-    elif risk_score >= 2:
+    elif risk_score >= 1:
         risk_level = "Medium"
     else:
         risk_level = "Low"
@@ -186,7 +186,7 @@ if __name__ == "__main__":
         else:
             ml_score = 0
 
-        # Hybrid averaging
+
         final_score = (rule_score * 0.5) + (ml_score * 0.5)
 
         if final_score >= 1.2:
