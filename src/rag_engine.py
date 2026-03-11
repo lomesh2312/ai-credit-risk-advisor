@@ -111,7 +111,14 @@ def generate_response(query, income=None, annuity=None):
         explanation += "- No major risk indicators detected.\n"
 
     if dti is not None:
-        explanation += f"\nCalculated Debt-to-Income Ratio: {round(dti,2)}\n"
+        explanation += f"\nCalculated Debt-to-Income Ratio (DTI): {round(dti,2)}\n"
+
+        explanation += (
+        "\nWhat is Debt-to-Income Ratio (DTI)?\n"
+        "DTI represents the proportion of a person's income that goes toward paying debt.\n"
+        "It is calculated as: Annual EMI / Annual Income.\n"
+        "A lower DTI indicates better repayment capacity, while a higher DTI suggests higher financial risk.\n"
+        )
 
     return explanation, risk_level, dti
 
@@ -196,7 +203,7 @@ if __name__ == "__main__":
         else:
             hybrid_risk = "Low"
 
-        # 🔒 Safety Clamp (VERY IMPORTANT)
+
         if risk_map[hybrid_risk] < risk_map[rule_risk_label]:
             final_risk = rule_risk_label
         else:
